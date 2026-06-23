@@ -12,10 +12,21 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme {
+  --color-cs-bg-deep:    #080E1A;
+  --color-cs-bg-base:    #0F1D30;
+  --color-cs-bg-card:    #1A2E45;
+  --color-cs-bg-border:  #243B55;
+  --color-cs-muted:      #4A6A8A;
+  --color-cs-accent:     #00C8E0;
+  --color-cs-text:       #E8F4FF;
+  --color-cs-danger:     #FF5C38;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
-    --foreground: #ededed;
+    --foreground: #ededed ;
   }
 }
 
