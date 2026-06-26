@@ -5,9 +5,11 @@ import { Fantasy } from "@/types/interface";
 export default async function MatchesPage() {
   const fantasyList: Fantasy[] = await Request_fantasy_CSAPI();
   return (
-    <div className="pt-4 h-150 w-full grid grid-rows-5 grid-flow-col gap-3 justify-items-center ">
-        {fantasyList.map((fantasy)=>(<FantasyPoint key={fantasy.id} fantasyName={fantasy.name}/>))}
+    <div className="min-h-screen flex flex-col justify-center">
+    <div className="max-w-5xl mx-auto  px-6 grid w-400 grid-cols-3 gap-6 ">
+        {fantasyList.map((fantasy)=>(<FantasyPoint key={fantasy.id} fantasyId={fantasy.id}  fantasyName={fantasy.name}/>))}
 
+    </div>
     </div>
   );
 }
