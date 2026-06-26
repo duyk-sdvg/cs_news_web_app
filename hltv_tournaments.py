@@ -127,13 +127,15 @@ def build_tournament_data(
         tournaments[event_name]["matches"].append(match_entry)
 
     # Финальная сборка результата
-    result: dict[str, dict] = {}
+    result: dict = {}
     for event_name, data in tournaments.items():
-        # Победитель турнира — победитель самого позднего матча по дате
+        # Последний матч турнира по дате
+        matches_with_date = [m for m in data["matches"] if m["date"]]
+        last_match = max(matches_with_date, key=lambda m: m["date"]) if matches_with_date else None
+
+        # Победитель турнира — победитель последнего матча
         tournament_winner = None
-        matches_with_winner = [m for m in data["matches"] if m["winner"] and m["date"]]
-        if matches_with_winner:
-            last_match = max(matches_with_winner, key=lambda m: m["date"])
+        if last_match and last_match["winner"]:
             tournament_winner = {
                 "id": last_match["winner"]["id"],
                 "name": last_match["winner"]["name"],
@@ -141,7 +143,11 @@ def build_tournament_data(
                 "last_match_id": last_match["id"],
             }
 
-        result[event_name] = {
+        # Ключ — id последнего матча (уникален для каждого турнира)
+        # Фолбэк на название если матчей с датой нет
+        tournament_key = str(last_match["id"]) if last_match else event_name
+
+        result[tournament_key] = {
             "tournament_name": event_name,
             "matches": data["matches"],
             "tournament_winner": tournament_winner,

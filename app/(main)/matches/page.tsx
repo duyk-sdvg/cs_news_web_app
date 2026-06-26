@@ -1,5 +1,5 @@
 // import { Request_fantasy_CSAPI } from "@/api/request_api";
-import FantasyPoint from "@/components/pageComponents/fantasyList";
+
 // import { Fantasy } from "@/types/interface";
 
 // export default async function MatchesPage() {
@@ -15,12 +15,13 @@ import FantasyPoint from "@/components/pageComponents/fantasyList";
 // }
 
 import { getTournaments } from "@/api/request_api";
+import FantasyPoint from "@/components/pageComponents/fantasyList";
 import { Tournament } from "@/types/interface";
 
 export default async function MatchesPage() {
   const tournaments: Record<string, Tournament> = await getTournaments();
   const tournamentsList = Object.values(tournaments);
-  console.log(tournamentsList);
+  // console.log(tournamentsList);
   return (
     <div>
       {/* {list.map((t) => (
