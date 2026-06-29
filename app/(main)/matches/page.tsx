@@ -16,14 +16,16 @@
 
 import { getTournaments } from "@/api/request_api";
 import FantasyPoint from "@/components/pageComponents/fantasyList";
+import Loupe from "@/components/pageComponents/searchMatches";
 import { Tournament } from "@/types/interface";
 
 export default async function MatchesPage() {
   const tournaments: Record<string, Tournament> = await getTournaments();
   const tournamentsList = Object.values(tournaments);
-  // console.log(tournamentsList);
+  // console.log(tournaments);
   return (
     <div>
+      {/* <Loupe tournaments={tournamentsList}/> */}
       {/* {list.map((t) => (
         <div key={t.tournament_name}>
           <h2>{t.tournament_name}</h2>

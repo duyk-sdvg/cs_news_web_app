@@ -30,8 +30,9 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col">
          <NavigatePannel/>
+         <div className="pt-16">
         {children}
-       
+       </div>
       </body>
     </html>
   );

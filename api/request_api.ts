@@ -10,12 +10,12 @@ export async function Request_fantasy_CSAPI() {
   return data;
 }
 
-// export async function Request_news_NEWSAPI() {
-//   const respons = await fetch(URL_NEWSAPI, { cache: "no-store" });
-//   const data: NewsResponse = await respons.json();
-// //   console.log(data);
-//   return data.articles;
-// }
+export async function Request_news_NEWSAPI() {
+  const respons = await fetch(URL_NEWSAPI, { cache: "no-store" });
+  const data: NewsResponse = await respons.json();
+//   console.log(data);
+  return data.articles;
+}
 
 
 

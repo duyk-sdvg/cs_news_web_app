@@ -12,8 +12,8 @@ export default async function MatchPage({
 
   const matchTournament: Matches[] = currentTournaments.matches;
 
-  console.log(currentTournaments);
-  console.log(matchTournament);
+  // console.log(currentTournaments);
+  // console.log(matchTournament);
   return (
     <div className="flex flex-col items-center p-6">
       <h1 className="text-3xl mb-2">{currentTournaments.tournament_name}</h1>
