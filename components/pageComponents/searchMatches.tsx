@@ -29,7 +29,7 @@ export default function Loupe({ tournaments }: { tournaments: Tournament[] }) {
   //   console.log(filtered)
 
   return (
-    <div ref={refDiv} className="absolute rounded-2xl right-114 top-4 ">
+    <div ref={refDiv} className="relative flex flex-col rounded-2xl justify-center">
       <input
         placeholder="Поиск турнира..."
         type="text"
@@ -41,7 +41,7 @@ export default function Loupe({ tournaments }: { tournaments: Tournament[] }) {
         className="bg-cs-bg-card border-2 border-cs-bg-border rounded-2xl outline-none px-2"
       />
       {isOpen && query && (
-        <div className="absolute overflow-y-auto max-h-60 custom-scroll">
+        <div className="absolute top-full overflow-y-auto max-h-60 custom-scroll">
           {filtered.length === 0 ? (
             <div className="bg-cs-danger">Ничего нет</div>
           ) : (

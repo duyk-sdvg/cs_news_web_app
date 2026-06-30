@@ -11,17 +11,19 @@ export default function FantasyPreviewList({
       <h1 className="p-2 bg-cs-bg-base rounded-t-xl">Прошедшие турниры:</h1>
       <div className="bg-white w-99 h-1" />
       {fantasyList.map((fantasy) => (
-        <h1 className="p-1 bg-cs-bg-deep" key={fantasy}>
+        <h1 className="p-2 bg-cs-bg-deep" key={fantasy}>
           {fantasy}
         </h1>
       ))}
       <div className="bg-white w-99 h-1" />
-      <Link
-        href="/matches"
-        className="p-2 px-35 bg-cs-bg-card rounded-b-xl hover:bg-cs-bg-border"
-      >
-        Узнать больше
-      </Link>
+      <div className="flex ">
+        <Link
+          href="/matches"
+          className="w-100 text-center p-2 rounded-b-xl hover:bg-cs-bg-border bg-cs-bg-card"
+        >
+          Узнать больше
+        </Link>
+      </div>
     </div>
   );
 }
