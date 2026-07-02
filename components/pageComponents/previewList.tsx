@@ -39,9 +39,9 @@ export function NewsPreviewList({ newsList }: { newsList: News[] }) {
         </h1>
       ))}
       <div className="bg-white w-99 h-1" />
-      <h1 className="p-2 px-35 bg-cs-bg-card rounded-b-xl hover:bg-cs-bg-border">
+      <Link href="/news" className="p-2 px-35 bg-cs-bg-card rounded-b-xl hover:bg-cs-bg-border">
         Узнать больше
-      </h1>
+      </Link>
     </div>
   );
 }

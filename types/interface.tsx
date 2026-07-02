@@ -39,10 +39,11 @@ export interface Tournament {
     name: string;
     last_match_date: string;
     last_match_id: number;
-  } | null; //у данных с апи может быть победителя в турнире (бред)
+  } | null; //у данных с апи может быть победителя в турнире
 }
 
 export interface News {
+  id: string;
   title: string;
   description: string;
   url: string;

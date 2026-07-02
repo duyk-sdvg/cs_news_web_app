@@ -9,7 +9,7 @@ export default async function NavigatePannel() {
   return (
     <div className="grid grid-cols-[100px_100px_100px_100px_300px] p-2 w-full h-15 gap-3 bg-cs-bg-base justify-center fixed z-10">
       <Link href="/" className="flex justify-center items-center rounded-xl hover:bg-cs-bg-border">Главная</Link>
-      <h1 className="flex justify-center items-center rounded-xl hover:bg-cs-bg-border">Новости </h1>
+      <Link href="/news" className="flex justify-center items-center rounded-xl hover:bg-cs-bg-border">Новости </Link>
       <Link href="/matches" className="flex justify-center items-center rounded-xl hover:bg-cs-bg-border">Турниры</Link>
       <h1 className="flex justify-center items-center rounded-xl hover:bg-cs-bg-border">О нас</h1>
       <Loupe tournaments={tournamentsList}/>

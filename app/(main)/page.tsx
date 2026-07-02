@@ -3,7 +3,6 @@ import FantasyPreviewList, {
 } from "@/components/pageComponents/previewList";
 import {
   getTournaments,
-  Request_fantasy_CSAPI,
   Request_news_NEWSAPI,
 } from "@/api/request_api";
 import { Fantasy, News, NewsResponse, Tournament } from "@/types/interface";
