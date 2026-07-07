@@ -11,7 +11,7 @@ import { Fantasy, News, NewsResponse } from "@/types/interface";
 // }
 
 export async function Request_news_NEWSAPI() {
-  const respons = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news?q=Counter-Strike&lang=ru`);  
+  const respons = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news?q=+CS2+tournament&language=en&sortBy=popularity`);  
   const data: NewsResponse = await respons.json();
 //   console.log(data);
   return data.articles;
@@ -24,7 +24,6 @@ export async function getTournaments() {
   if (!res.ok) throw new Error('Failed to fetch tournaments');
   return res.json();
 }
-
 
 
 
