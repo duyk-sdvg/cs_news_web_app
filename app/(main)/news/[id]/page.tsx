@@ -1,5 +1,6 @@
 import { Request_news_NEWSAPI } from "@/api/request_api";
 import { News } from "@/types/interface";
+import Image from "next/image";
 
 export default async function DetailsNewsPage({
   params,
@@ -13,14 +14,23 @@ export default async function DetailsNewsPage({
   );
   console.log(qurrentNews);
   return (
-    <div>
+    <div className="flex flex-col  items-center pt-5">
       {qurrentNews !== undefined ? (
-        <div>
-          <div>Новость с id: {id}</div>
-          <div>{qurrentNews.content}</div>
+        <div className="flex flex-col max-w-200">
+          <div className="text-5xl pb-5">{decodeURIComponent(id)}</div>
+          <div className="relative w-full h-108">
+            <Image
+              src={qurrentNews.urlToImage}
+              alt="Фото новости"
+              fill
+              className="object-contain"
+              unoptimized
+            />
+          </div>
+          <div className="text-3xl pt-7">{qurrentNews.description}</div>
         </div>
       ) : (
-        <></>
+        <div>qurrentNews - оказался undefined</div>
       )}
     </div>
   );
