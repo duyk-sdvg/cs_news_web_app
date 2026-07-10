@@ -27,7 +27,7 @@ export default async function MatchPage({
             >
               <h1>Дата матча: {match.date}</h1>
               <div>
-                <div className="grid grid-cols-[1fr_0.3fr_1fr] gap-0 m-2 items-end ">
+                <div className="grid grid-cols-[1fr_0.4fr_1fr] gap-0 m-2 items-end ">
                   <div className="flex text-3xl justify-end">{match.team1.name}</div>
                   <div className="  text-5xl">
                     {match.winner !== null ? (

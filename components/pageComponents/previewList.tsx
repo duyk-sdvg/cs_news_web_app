@@ -34,14 +34,16 @@ export function NewsPreviewList({ newsList }: { newsList: News[] }) {
       <h1 className="p-2 bg-cs-bg-base rounded-t-xl">Последние новости:</h1>
       <div className="bg-white w-99 h-1" />
       {newsList.map((news) => (
-        <h1 className="p-1 bg-cs-bg-deep" key={news.description}>
+        <h1 className="p-2 bg-cs-bg-deep" key={news.description}>
           {news.title}
         </h1>
       ))}
       <div className="bg-white w-99 h-1" />
-      <Link href="/news" className="p-2 px-35 bg-cs-bg-card rounded-b-xl hover:bg-cs-bg-border">
+      <div className="flex">
+      <Link href="/news" className="w-100 text-center p-2 rounded-b-xl hover:bg-cs-bg-border bg-cs-bg-card">
         Узнать больше
       </Link>
+      </div>
     </div>
   );
 }
