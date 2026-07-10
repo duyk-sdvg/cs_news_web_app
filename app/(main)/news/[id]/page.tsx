@@ -12,7 +12,7 @@ export default async function DetailsNewsPage({
   const qurrentNews = newsList.find(
     (news) => news.title === decodeURIComponent(id),
   );
-  console.log(qurrentNews);
+  // console.log(qurrentNews);
   return (
     <div className="flex flex-col  items-center pt-5">
       {qurrentNews !== undefined ? (

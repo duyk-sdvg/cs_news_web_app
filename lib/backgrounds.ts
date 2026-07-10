@@ -2,6 +2,7 @@ export const BACKGROUNDS = {
   furia: "/backgrounds/furia.png",
   natus_vincere: "/backgrounds/natus_vincere.png",
   spirit: "/backgrounds/spirit.png",
+  vitality: "/backgrounds/vitality.png",
 };
 
 export const DEFAULT_BACKGROUND = "/backgrounds/default.png";

@@ -10,10 +10,10 @@ import { Fantasy, News, NewsResponse } from "@/types/interface";
 //   return data;
 // }
 
-export async function Request_news_NEWSAPI() {
-  const respons = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news?q=+CS2+tournament&language=en&sortBy=popularity`);  
+export async function Request_news_NEWSAPI(numberPage : number=1) {
+  const respons = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/news?pageSize=5&page=${numberPage}`);  //q=+CS2+tournament&language=en&sortBy=popularity&
   const data: NewsResponse = await respons.json();
-//   console.log(data);
+  // console.log(data);
   return data.articles;
 }
 
