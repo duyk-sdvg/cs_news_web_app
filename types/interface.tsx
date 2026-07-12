@@ -56,4 +56,5 @@ export interface News {
 }
 export interface NewsResponse {
   articles: News[];
+  totalResults: number;
 }

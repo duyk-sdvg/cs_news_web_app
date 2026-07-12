@@ -14,14 +14,14 @@ export default async function Home() {
   const lastTreetournamentsKey: string[] = tournamentsListKey.slice(-3)
   const lastTreetournamentsName: string[] = lastTreetournamentsKey.map((id)=>tournaments[id].tournament_name)
 
-  const newsList:  News[] = await Request_news_NEWSAPI();
+  const newsList = await Request_news_NEWSAPI();
 
   // console.log(lastTreetournamentsKey)
 
   return (
     <div className="flex items-start justify-center">
       <FantasyPreviewList tournamentsList={lastTreetournamentsName.slice(-3)} />
-      <NewsPreviewList newsList={newsList.slice(-3)}/>
+      <NewsPreviewList newsList={newsList.articles.slice(-3)}/>
     </div>
   );
 }

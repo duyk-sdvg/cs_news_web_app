@@ -1,36 +1,49 @@
-'use client'
+"use client";
 
 import { Request_news_NEWSAPI } from "@/api/request_api";
+import { useNews } from "@/context/NewsContext";
 import { News } from "@/types/interface";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 
 export default function NewsPage() {
-  const [newsList, setNewsList] = useState<News[]>([])
-  const [numberPage, setNumberPage] = useState(1)
+  // const [newsList, setNewsList] = useState<News[]>([])
+  const { newsList, setNewsList } = useNews();
+  const [numberPage, setNumberPage] = useState(1);
   const hasFetchedInitial = useRef(false);
-  // console.log(newsList)
+  const [isLoad, setIsLoad] = useState(true)
+  const [hasMore, setHasMore] = useState(0)
+  
 
-  const loadMore = async() => {
+  const loadMore = async () => {
+    setHasMore(prev=>prev-5)
+    setIsLoad(false)
     const newArticles = await Request_news_NEWSAPI(numberPage);
-    console.log(newArticles)
-    setNewsList(prev => [...prev, ...newArticles]); 
-    setNumberPage(prev => prev + 1);
-  }
+    // console.log(newArticles)
+    setNewsList((prev) => [...prev, ...newArticles.articles]);
+    setNumberPage((prev) => prev + 1);
+    setIsLoad(true)
+  };
 
-  useEffect(()=>{
-    if (hasFetchedInitial.current) return; // защита от повторного вызова
+  useEffect(() => {
+    setIsLoad(false)
+    if (hasFetchedInitial.current){
+      setIsLoad(true)
+      return
+    }  ; // защита от повторного вызова
     hasFetchedInitial.current = true;
 
     const fetchInitial = async () => {
       const newArticles = await Request_news_NEWSAPI();
-      setNewsList(newArticles);
+      setNewsList(newArticles.articles);
+      setHasMore(newArticles.totalResults-5)
       setNumberPage(2);
     };
     fetchInitial();
-  },[])
+    setIsLoad(true)
+  }, []);
 
-
+  // console.log(newsList)
   return (
     <div>
       <div className="flex flex-col items-center">
@@ -43,10 +56,16 @@ export default function NewsPage() {
             {news.title}
           </Link>
         ))}
+        {hasMore > 0?
+        isLoad?<button onClick={loadMore} className="bg-cs-bg-border p-3 rounded-2xl m-2 hover:bg-cs-bg-base">
+          Загрузить еще новостей
+        </button> :
+        <button onClick={loadMore} className="bg-cs-bg-border p-3 rounded-2xl m-2 hover:bg-cs-bg-base" disabled>
+          Загрузка...
+        </button> 
+         :
+         <h1 className="bg-cs-bg-border p-3 rounded-2xl m-2 hover:bg-cs-bg-base">Новостей пока больше нет</h1>}
       </div>
-      <button onClick={loadMore} className="bg-amber-400">
-        Загрузить еще новостей
-      </button>
     </div>
   );
 }
