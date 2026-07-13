@@ -1,6 +1,7 @@
 "use client";
 
 import { Request_news_NEWSAPI } from "@/api/request_api";
+import { ScrollToTopButton } from "@/components/pageComponents/ScrollToTopButton";
 import { useNews } from "@/context/NewsContext";
 import { News } from "@/types/interface";
 import Link from "next/link";
@@ -38,9 +39,10 @@ export default function NewsPage() {
       setNewsList(newArticles.articles);
       setHasMore(newArticles.totalResults-5)
       setNumberPage(2);
+      setIsLoad(true)
     };
     fetchInitial();
-    setIsLoad(true)
+    
   }, []);
 
   // console.log(newsList)
@@ -65,6 +67,7 @@ export default function NewsPage() {
         </button> 
          :
          <h1 className="bg-cs-bg-border p-3 rounded-2xl m-2 hover:bg-cs-bg-base">Новостей пока больше нет</h1>}
+         <ScrollToTopButton />
       </div>
     </div>
   );

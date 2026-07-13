@@ -1,4 +1,5 @@
 import { getTournaments } from "@/api/request_api";
+import { ScrollToTopButton } from "@/components/pageComponents/ScrollToTopButton";
 import { Matches, Tournament } from "@/types/interface";
 
 export default async function MatchPage({
@@ -66,6 +67,7 @@ export default async function MatchPage({
             <div>tournament_winner - null</div>
           ),
         )}
+        <ScrollToTopButton/>
       </div>
     </div>
   );

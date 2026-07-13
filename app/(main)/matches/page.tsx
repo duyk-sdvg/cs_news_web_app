@@ -1,5 +1,6 @@
 import { getTournaments } from "@/api/request_api";
 import FantasyPoint from "@/components/pageComponents/fantasyList";
+import { ScrollToTopButton } from "@/components/pageComponents/ScrollToTopButton";
 import Loupe from "@/components/pageComponents/searchMatches";
 import { getBackground } from "@/lib/backgrounds";
 import { Tournament } from "@/types/interface";
@@ -25,6 +26,7 @@ export default async function MatchesPage() {
               <div>tournament_winner - оказался null</div>
             ),
           )}
+          <ScrollToTopButton />
         </div>
       </div>
     </div>
